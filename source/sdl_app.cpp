@@ -41,7 +41,7 @@ void SdlApp::onEvent(SDL_Event* event){
 int SdlApp::onInit(){
   if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
     return false;
-  if((display = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
+  if((display = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
     return false;
   if((background = SurfaceHelper::load("images//bg.jpg")) == NULL)
     return false;
@@ -51,6 +51,9 @@ int SdlApp::onInit(){
 }
 
 void SdlApp::onLoop(){
+  int delay_time = FRAMES_PER_SECOND_DELAY - (SDL_GetTicks() - old_time);
+  if(delay_time > 0)
+    SDL_Delay((Uint32)delay_time);
   if((old_time + frame_rate > SDL_GetTicks()))
     return;
   old_time = SDL_GetTicks();
