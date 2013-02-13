@@ -1,7 +1,7 @@
 #include "enemy.h"
 
 Enemy::Enemy(){
-  sprite = SurfaceHelper::load("source//images//image.png");
+  sprite = SurfaceHelper::load("images//image.png");
   pos_x = pos_y = 50;
   velocity_x = velocity_y = 10;
 }

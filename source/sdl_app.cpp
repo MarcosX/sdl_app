@@ -43,7 +43,7 @@ int SdlApp::onInit(){
     return false;
   if((display = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
     return false;
-  if((background = SurfaceHelper::load("source//images//bg.jpg")) == NULL)
+  if((background = SurfaceHelper::load("images//bg.jpg")) == NULL)
     return false;
   player = new Player();
   enemy = new Enemy();
