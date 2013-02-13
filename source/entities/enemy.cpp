@@ -7,7 +7,7 @@ Enemy::Enemy(){
 }
 
 void Enemy::loop(){
-  if(pos_x >= (640 - 64) || pos_x <= 0)
+  if(pos_x >= (SCREEN_WIDTH - 64) || pos_x <= 0)
     velocity_x = -velocity_x;
   pos_x += velocity_x;
 }

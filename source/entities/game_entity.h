@@ -3,6 +3,7 @@
 
 #include <SDL/SDL.h>
 #include "../surface_helper.h"
+#include "../constants.h"
 
 class GameEntity {
 protected:
