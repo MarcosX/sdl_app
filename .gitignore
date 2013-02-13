@@ -11,3 +11,11 @@
 *.lai
 *.la
 *.a
+
+# Vim files
+*.swo
+*.swp
+
+# MacOS files
+*.DS_Store
+
