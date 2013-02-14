@@ -8,8 +8,8 @@
 class Player: public GameEntity {
 private:
   EntityState* walking;
-  bool move_left, move_right, move_up, move_down;
 public:
+  bool move_left, move_right, move_up, move_down;
   Player();
   void loop();
   void render(SDL_Surface* display);

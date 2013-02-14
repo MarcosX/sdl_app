@@ -18,6 +18,7 @@ public:
   void loop();
   void render(SDL_Surface* display);
   void cleanUp();
+  void event(SDL_Event* event);
 };
 
 #endif

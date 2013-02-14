@@ -28,42 +28,6 @@ void Player::cleanUp(){
 }
 
 void Player::event(SDL_Event* event){
-  switch(event->type){
-    case SDL_KEYDOWN:
-      switch(event->key.keysym.sym){
-        case SDLK_RIGHT:
-          move_right = true;
-          break;
-        case SDLK_LEFT:
-          move_left = true;
-          break;
-        case SDLK_UP:
-          move_up = true;
-          break;
-        case SDLK_DOWN:
-          move_down = true;
-          break;
-        default:
-          break;
-      }
-      break;
-    case SDL_KEYUP:
-      switch(event->key.keysym.sym){
-        case SDLK_RIGHT:
-          move_right = false;
-          break;
-        case SDLK_LEFT:
-          move_left = false;
-          break;
-        case SDLK_UP:
-          move_up = false;
-          break;
-        case SDLK_DOWN:
-          move_down = false;
-          break;
-      }
-      break;
-    default:
-      break;
-  }
+  walking->event(event);
 }
+
