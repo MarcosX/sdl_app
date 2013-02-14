@@ -6,15 +6,15 @@
 #include "../surface_helper.h"
 #include "../entities/game_entity.h"
 #include "../entities/player.h"
-#include "entity_animation.h"
+#include "entity_state.h"
 
 class Player;
 
-class PlayerWalkingAnimation: public EntityAnimation {
+class PlayerWalking: public EntityState {
 private:
   Player* player;
 public:
-  PlayerWalkingAnimation(GameEntity* entity, std::string file, int max_frames, int width, int height);
+  PlayerWalking(GameEntity* entity, std::string file, int max_frames, int width, int height);
   void loop();
   void render(SDL_Surface* display);
   void cleanUp();

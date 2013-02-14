@@ -2,12 +2,12 @@
 #define _PLAYER_H_
 
 #include "game_entity.h"
-#include "../animations/entity_animation.h"
-#include "../animations/player_walking_animation.h"
+#include "../states/entity_state.h"
+#include "../states/player_walking.h"
 
 class Player: public GameEntity {
 private:
-  EntityAnimation* walking;
+  EntityState* walking;
   bool move_left, move_right, move_up, move_down;
 public:
   Player();
