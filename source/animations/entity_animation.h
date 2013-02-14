@@ -9,10 +9,10 @@
 class EntityAnimation {
 protected:
  SDL_Surface* sprites;
- GameEntity* entity;
  int current_frame, max_frames;
  int width, height;
 public:
+ EntityAnimation(GameEntity* entity, std::string file, int max_frames, int width, int height) {};
  virtual void loop(){};
  virtual void event(SDL_Event* event){};
  virtual void render(SDL_Surface* display){};
