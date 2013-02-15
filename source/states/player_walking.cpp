@@ -2,10 +2,10 @@
 
 PlayerWalking::PlayerWalking(GameEntity* entity)
 : EntityState(entity){
-  sprites = SurfaceHelper::load("images//yoshi.png");
-  this->max_frames = 8;
-  this->height = 64;
-  this->width = 64;
+  sprites = SurfaceHelper::load("images//Player_main_sheet.png");
+  this->max_frames = 3;
+  this->height = 32;
+  this->width = 32;
   this->player = (Player*)entity;
   current_frame = 0;
 }
@@ -17,7 +17,7 @@ void PlayerWalking::loop(){
 }
 
 void PlayerWalking::render(SDL_Surface* display){
-  SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), 0, current_frame*height, width, height);
+  SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), current_frame*width, 0, width, height);
 }
 
 void PlayerWalking::cleanUp(){
