@@ -2,8 +2,8 @@
 #define _GAME_ENTITY_H_
 
 #include <SDL/SDL.h>
-#include "../surface_helper.h"
-#include "../constants.h"
+#include "../helpers/surface_helper.h"
+#include "../helpers/constants.h"
 
 class GameEntity {
 protected:

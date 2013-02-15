@@ -3,7 +3,7 @@
 
 #include <SDL/SDL.h>
 #include <string>
-#include "../surface_helper.h"
+#include "../helpers/surface_helper.h"
 #include "../entities/game_entity.h"
 
 class EntityState {

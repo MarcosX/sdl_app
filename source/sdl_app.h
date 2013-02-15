@@ -2,10 +2,10 @@
 #define _SDL_APP_H_
 
 #include <SDL/SDL.h>
-#include "surface_helper.h"
 #include "entities/player.h"
 #include "entities/enemy.h"
-#include "constants.h"
+#include "helpers/constants.h"
+#include "helpers/surface_helper.h"
 
 class SdlApp{
 private:
