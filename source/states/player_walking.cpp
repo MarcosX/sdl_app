@@ -17,7 +17,16 @@ void PlayerWalking::loop(){
 }
 
 void PlayerWalking::render(SDL_Surface* display){
-  SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), current_frame*width, 0, width, height);
+  if(player->move_down)
+    SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), current_frame*width, 0, width, height);
+  else if(player->move_up)
+    SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), current_frame*width, 96, width, height);
+  else if(player->move_left)
+    SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), current_frame*width, 32, width, height);
+  else if(player->move_right)
+    SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), current_frame*width, 64, width, height);
+  else
+    SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), 32, 0, width, height);
 }
 
 void PlayerWalking::cleanUp(){
