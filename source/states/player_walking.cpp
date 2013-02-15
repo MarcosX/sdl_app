@@ -1,11 +1,11 @@
 #include "player_walking.h"
 
-PlayerWalking::PlayerWalking(GameEntity* entity, std::string file, int max_frames, int width, int height)
-: EntityState(entity, file, max_frames, width, height){
-  sprites = SurfaceHelper::load(file);
-  this->max_frames = max_frames;
-  this->height = height;
-  this->width = width;
+PlayerWalking::PlayerWalking(GameEntity* entity)
+: EntityState(entity){
+  sprites = SurfaceHelper::load("images//yoshi.png");
+  this->max_frames = 8;
+  this->height = 64;
+  this->width = 64;
   this->player = (Player*)entity;
   current_frame = 0;
 }

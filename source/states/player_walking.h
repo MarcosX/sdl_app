@@ -14,7 +14,7 @@ class PlayerWalking: public EntityState {
 private:
   Player* player;
 public:
-  PlayerWalking(GameEntity* entity, std::string file, int max_frames, int width, int height);
+  PlayerWalking(GameEntity* entity);
   void loop();
   void render(SDL_Surface* display);
   void cleanUp();

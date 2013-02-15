@@ -1,7 +1,7 @@
 #include "player.h"
 
 Player::Player(){
-  walking = new PlayerWalking(this, "images//yoshi.png", 8, 64, 64);
+  walking = new PlayerWalking(this);
   pos_x = pos_y = 0;
   velocity_x = velocity_y = 5;
   move_up = move_left = move_right = move_down = false;

@@ -12,7 +12,7 @@ protected:
  int current_frame, max_frames;
  int width, height;
 public:
- EntityState(GameEntity* entity, std::string file, int max_frames, int width, int height) {};
+ EntityState(GameEntity* entity) {};
  virtual void loop(){};
  virtual void event(SDL_Event* event){};
  virtual void render(SDL_Surface* display){};
