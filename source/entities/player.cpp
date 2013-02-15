@@ -17,6 +17,10 @@ void Player::loop(){
     pos_x -= 5;
   if(move_right)
     pos_x += 5;
+  if(pos_x <= 0) pos_x = 0;
+  if(pos_x + 32 >= SCREEN_WIDTH) pos_x = SCREEN_WIDTH - 32;
+  if(pos_y <= 0) pos_y = 0;
+  if(pos_y + 32 >= SCREEN_HEIGHT) pos_y = SCREEN_HEIGHT -32;
 }
 
 void Player::render(SDL_Surface* display){
