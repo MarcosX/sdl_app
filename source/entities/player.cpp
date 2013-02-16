@@ -3,6 +3,7 @@
 Player::Player(){
   walking = new PlayerWalking(this);
   pos_x = pos_y = 0;
+  width = height = 32;
   velocity_x = velocity_y = 5;
   move_up = move_left = move_right = move_down = false;
 }
@@ -18,9 +19,9 @@ void Player::loop(){
   if(move_right)
     pos_x += 5;
   if(pos_x <= 0) pos_x = 0;
-  if(pos_x + 32 >= SCREEN_WIDTH) pos_x = SCREEN_WIDTH - 32;
+  if(pos_x + width >= SCREEN_WIDTH) pos_x = SCREEN_WIDTH - width;
   if(pos_y <= 0) pos_y = 0;
-  if(pos_y + 32 >= SCREEN_HEIGHT) pos_y = SCREEN_HEIGHT -32;
+  if(pos_y + height >= SCREEN_HEIGHT) pos_y = SCREEN_HEIGHT - height;
 }
 
 void Player::render(SDL_Surface* display){

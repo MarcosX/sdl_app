@@ -8,10 +8,13 @@
 class GameEntity {
 protected:
   int pos_x, pos_y;
+  int width, height;
   int velocity_x, velocity_y;
 public:
   int getPosX() {return pos_x;};
   int getPosY() {return pos_y;};
+  int getWidth() {return width;};
+  int getHeight() {return height;};
   virtual void loop(){};
   virtual void render(SDL_Surface* display){};
   virtual void cleanUp(){};

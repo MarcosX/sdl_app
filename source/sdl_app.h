@@ -2,6 +2,7 @@
 #define _SDL_APP_H_
 
 #include <SDL/SDL.h>
+#include "entities/game_entity.h"
 #include "entities/player.h"
 #include "entities/enemy.h"
 #include "helpers/constants.h"
@@ -17,14 +18,15 @@ private:
   Player* player;
   Enemy* enemy;
 
-public:
-  SdlApp();
-  int onExecute();
   int onInit();
   void onEvent(SDL_Event* event);
   void onLoop();
   void onRender();
   void onCleanUp();
+  bool collide(GameEntity* entity1, GameEntity* entity2);
+public:
+  SdlApp();
+  int onExecute();
 };
 
 #endif

@@ -3,7 +3,7 @@
 SdlApp::SdlApp(){
   old_time = 0;
   display = NULL;
-  frame_rate = 100;
+  frame_rate = 24;
   running = true;
   background = NULL;
 }
@@ -59,6 +59,10 @@ void SdlApp::onLoop(){
   old_time = SDL_GetTicks();
   player->loop();
   enemy->loop();
+  if(collide(player, enemy)){
+    delete(player);
+    player = new Player();
+  }
 }
 
 void SdlApp::onRender(){
@@ -66,5 +70,13 @@ void SdlApp::onRender(){
   enemy->render(display);
   player->render(display);
   SDL_Flip(display);
+}
+
+bool SdlApp::collide(GameEntity* entity1, GameEntity* entity2){
+  if(entity1->getPosX() + entity1->getWidth() < entity2->getPosX()) return false;
+  if(entity1->getPosX() > entity2->getPosX() + entity2->getWidth()) return false;
+  if(entity1->getPosY() + entity1->getHeight() < entity2->getPosY()) return false;
+  if(entity1->getPosY() > entity2->getPosY() + entity2->getHeight()) return false;
+  return true;
 }
 
