@@ -3,7 +3,7 @@
 PlayerWalking::PlayerWalking(GameEntity* entity)
 : EntityState(entity){
   sprites = SurfaceHelper::load("images//Player_main_sheet.png");
-  this->max_frames = 3;
+  this->max_frames = 4;
   this->height = 32;
   this->width = 32;
   this->player = (Player*)entity;
