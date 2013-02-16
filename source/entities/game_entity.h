@@ -4,6 +4,8 @@
 #include <SDL/SDL.h>
 #include "../helpers/surface_helper.h"
 #include "../helpers/constants.h"
+#include "../helpers/image_source.h"
+#include "../states/entity_state.h"
 
 class GameEntity {
 protected:
@@ -11,6 +13,7 @@ protected:
   int width, height;
   int velocity_x, velocity_y;
 public:
+  bool move_left, move_right, move_up, move_down;
   int getPosX() {return pos_x;};
   int getPosY() {return pos_y;};
   int getWidth() {return width;};

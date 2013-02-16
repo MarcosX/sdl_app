@@ -3,7 +3,7 @@
 SdlApp::SdlApp(){
   old_time = 0;
   display = NULL;
-  frame_rate = 24;
+  frame_rate = 48;
   running = true;
   background = NULL;
 }

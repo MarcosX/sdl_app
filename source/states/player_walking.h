@@ -1,10 +1,6 @@
 #ifndef _PLAYER_WALKING_ANIMATION_H_
 #define _PLAYER_WALKING_ANIMATION_H_
 
-#include <SDL/SDL.h>
-#include <string>
-#include "../helpers/surface_helper.h"
-#include "../entities/game_entity.h"
 #include "../entities/player.h"
 #include "entity_state.h"
 

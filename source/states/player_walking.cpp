@@ -1,8 +1,7 @@
 #include "player_walking.h"
 
-PlayerWalking::PlayerWalking(GameEntity* entity)
-: EntityState(entity){
-  sprites = SurfaceHelper::load("images//Player_main_sheet.png");
+PlayerWalking::PlayerWalking(GameEntity* entity){
+  sprites = ImageSource::getPlayerImageSheet();
   this->max_frames = 4;
   this->height = 32;
   this->width = 32;
