@@ -25,13 +25,13 @@ void EnemyWalking::loop(){
 
 void EnemyWalking::render(SDL_Surface* display){
   if(enemy->move_down)
-    SurfaceHelper::draw(display, sprites, enemy->getPosX(), enemy->getPosY(), current_frame*width, 0, width, height);
+    SurfaceHelper::draw(display, sprites, enemy->getPosX(), enemy->getPosY(), current_frame*width + 94, 0 + 128, width, height);
   else if(enemy->move_up)
-    SurfaceHelper::draw(display, sprites, enemy->getPosX(), enemy->getPosY(), current_frame*width, 96, width, height);
+    SurfaceHelper::draw(display, sprites, enemy->getPosX(), enemy->getPosY(), current_frame*width + 94, 96 + 128, width, height);
   else if(enemy->move_left)
-    SurfaceHelper::draw(display, sprites, enemy->getPosX(), enemy->getPosY(), current_frame*width, 32, width, height);
+    SurfaceHelper::draw(display, sprites, enemy->getPosX(), enemy->getPosY(), current_frame*width + 94, 32 + 128, width, height);
   else if(enemy->move_right)
-    SurfaceHelper::draw(display, sprites, enemy->getPosX(), enemy->getPosY(), current_frame*width, 64, width, height);
+    SurfaceHelper::draw(display, sprites, enemy->getPosX(), enemy->getPosY(), current_frame*width + 94, 64 + 128, width, height);
   else
     SurfaceHelper::draw(display, sprites, enemy->getPosX(), enemy->getPosY(), width, 0, width, height);
 }
