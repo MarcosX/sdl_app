@@ -1,7 +1,7 @@
 #include "player.h"
 
 Player::Player(){
-  walking = new PlayerWalking(this);
+  current_state = new PlayerWalking(this);
   pos_x = pos_y = 0;
   width = height = 32;
   velocity_x = velocity_y = 5;
@@ -9,7 +9,7 @@ Player::Player(){
 }
 
 void Player::loop(){
-  walking->loop();
+  current_state->loop();
   if(move_up)
     pos_y -= 5;
   if(move_down)
@@ -25,14 +25,14 @@ void Player::loop(){
 }
 
 void Player::render(SDL_Surface* display){
-  walking->render(display);
+  current_state->render(display);
 }
 
 void Player::cleanUp(){
-  delete(walking);
+  delete(current_state);
 }
 
 void Player::event(SDL_Event* event){
-  walking->event(event);
+  current_state->event(event);
 }
 

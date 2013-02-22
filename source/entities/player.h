@@ -6,7 +6,7 @@
 
 class Player: public GameEntity {
 private:
-  EntityState* walking;
+  EntityState* current_state;
 public:
   Player();
   void loop();

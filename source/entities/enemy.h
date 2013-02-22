@@ -6,7 +6,7 @@
 
 class Enemy: public GameEntity {
 private:
-  EntityState* walking;
+  EntityState* current_state;
 public:
   Enemy();
   void loop();
