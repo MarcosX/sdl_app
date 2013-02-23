@@ -6,6 +6,7 @@ PlayerWalking::PlayerWalking(GameEntity* entity){
   this->height = 32;
   this->width = 32;
   this->player = (Player*)entity;
+  velocity_x = velocity_y = 5;
   current_frame = 0;
 }
 
@@ -13,19 +14,31 @@ void PlayerWalking::loop(){
   current_frame++;
   if(current_frame >= max_frames)
     current_frame = 0;
+  if(player->move_up)
+    player->pos_y -= 5;
+  if(player->move_down)
+    player->pos_y += 5;
+  if(player->move_left)
+    player->pos_x -= 5;
+  if(player->move_right)
+    player->pos_x += 5;
+  if(player->pos_x <= 0) player->pos_x = 0;
+  if(player->pos_x + width >= SCREEN_WIDTH) player->pos_x = SCREEN_WIDTH - width;
+  if(player->pos_y <= 0) player->pos_y = 0;
+  if(player->pos_y + height >= SCREEN_HEIGHT) player->pos_y = SCREEN_HEIGHT - height;
 }
 
 void PlayerWalking::render(SDL_Surface* display){
   if(player->move_down)
-    SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), current_frame*width, 0, width, height);
+    SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, current_frame*width, 0, width, height);
   else if(player->move_up)
-    SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), current_frame*width, 96, width, height);
+    SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, current_frame*width, 96, width, height);
   else if(player->move_left)
-    SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), current_frame*width, 32, width, height);
+    SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, current_frame*width, 32, width, height);
   else if(player->move_right)
-    SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), current_frame*width, 64, width, height);
+    SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, current_frame*width, 64, width, height);
   else
-    SurfaceHelper::draw(display, sprites, player->getPosX(), player->getPosY(), 32, 0, width, height);
+    SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, 32, 0, width, height);
 }
 
 void PlayerWalking::cleanUp(){
@@ -72,3 +85,12 @@ void PlayerWalking::event(SDL_Event* event){
       break;
   }
 }
+
+bool PlayerWalking::hits(GameEntity* target){
+  if(player->pos_x + player->getWidth() < target->pos_x) return false;
+  if(player->pos_x > target->pos_x + target->getWidth()) return false;
+  if(player->pos_y + player->getHeight() < target->pos_y) return false;
+  if(player->pos_y > target->pos_y + target->getHeight()) return false;
+  return true;
+}
+

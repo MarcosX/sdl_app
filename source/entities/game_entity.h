@@ -9,18 +9,16 @@
 
 class GameEntity {
 protected:
-  int pos_x, pos_y;
-  int width, height;
-  int velocity_x, velocity_y;
+  EntityState* current_state;
 public:
+  int pos_x, pos_y;
   bool move_left, move_right, move_up, move_down;
-  int getPosX() {return pos_x;};
-  int getPosY() {return pos_y;};
-  int getWidth() {return width;};
-  int getHeight() {return height;};
+  int getWidth() {return current_state->getWidth();};
+  int getHeight() {return current_state->getHeight();};
   virtual void loop(){};
   virtual void render(SDL_Surface* display){};
   virtual void cleanUp(){};
+  virtual bool hits(GameEntity* target){};
 };
 
 #endif

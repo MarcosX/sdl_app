@@ -15,6 +15,7 @@ public:
   void render(SDL_Surface* display);
   void cleanUp();
   void event(SDL_Event* event);
+  bool hits(GameEntity* target);
 };
 
 #endif

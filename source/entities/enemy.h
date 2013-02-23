@@ -1,12 +1,10 @@
 #ifndef _ENEMY_H_
 #define _ENEMY_H_
 
-#include "../states/enemy_walking.h"
 #include "game_entity.h"
+#include "../states/enemy_walking.h"
 
 class Enemy: public GameEntity {
-private:
-  EntityState* current_state;
 public:
   Enemy();
   void loop();
