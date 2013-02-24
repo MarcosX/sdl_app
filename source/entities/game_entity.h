@@ -12,7 +12,6 @@ protected:
   EntityState* current_state;
 public:
   int pos_x, pos_y;
-  bool move_left, move_right, move_up, move_down;
   int getWidth() {return current_state->getWidth();};
   int getHeight() {return current_state->getHeight();};
   virtual void loop(){};

@@ -3,8 +3,6 @@
 Enemy::Enemy(){
   current_state = new EnemyWalking(this);
   pos_x = pos_y = 50;
-  move_up = move_left = move_down = false;
-  move_right = true;
 }
 
 void Enemy::loop(){

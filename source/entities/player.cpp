@@ -3,7 +3,6 @@
 Player::Player(){
   current_state = new PlayerWalking(this);
   pos_x = pos_y = 0;
-  move_up = move_left = move_right = move_down = false;
 }
 
 void Player::loop(){

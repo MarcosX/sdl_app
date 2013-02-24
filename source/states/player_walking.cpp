@@ -8,19 +8,20 @@ PlayerWalking::PlayerWalking(GameEntity* entity){
   this->player = (Player*)entity;
   velocity_x = velocity_y = 5;
   current_frame = 0;
+  move_left = move_right = move_up = move_down = false;
 }
 
 void PlayerWalking::loop(){
   current_frame++;
   if(current_frame >= max_frames)
     current_frame = 0;
-  if(player->move_up)
+  if(move_up)
     player->pos_y -= 5;
-  if(player->move_down)
+  if(move_down)
     player->pos_y += 5;
-  if(player->move_left)
+  if(move_left)
     player->pos_x -= 5;
-  if(player->move_right)
+  if(move_right)
     player->pos_x += 5;
   if(player->pos_x <= 0) player->pos_x = 0;
   if(player->pos_x + width >= SCREEN_WIDTH) player->pos_x = SCREEN_WIDTH - width;
@@ -29,13 +30,13 @@ void PlayerWalking::loop(){
 }
 
 void PlayerWalking::render(SDL_Surface* display){
-  if(player->move_down)
+  if(move_down)
     SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, current_frame*width, 0, width, height);
-  else if(player->move_up)
+  else if(move_up)
     SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, current_frame*width, 96, width, height);
-  else if(player->move_left)
+  else if(move_left)
     SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, current_frame*width, 32, width, height);
-  else if(player->move_right)
+  else if(move_right)
     SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, current_frame*width, 64, width, height);
   else
     SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, 32, 0, width, height);
@@ -50,16 +51,16 @@ void PlayerWalking::event(SDL_Event* event){
     case SDL_KEYDOWN:
       switch(event->key.keysym.sym){
         case SDLK_RIGHT:
-          player->move_right = true;
+          move_right = true;
           break;
         case SDLK_LEFT:
-          player->move_left = true;
+          move_left = true;
           break;
         case SDLK_UP:
-          player->move_up = true;
+          move_up = true;
           break;
         case SDLK_DOWN:
-          player->move_down = true;
+          move_down = true;
           break;
         default:
           break;
@@ -68,16 +69,16 @@ void PlayerWalking::event(SDL_Event* event){
     case SDL_KEYUP:
       switch(event->key.keysym.sym){
         case SDLK_RIGHT:
-          player->move_right = false;
+          move_right = false;
           break;
         case SDLK_LEFT:
-          player->move_left = false;
+          move_left = false;
           break;
         case SDLK_UP:
-          player->move_up = false;
+          move_up = false;
           break;
         case SDLK_DOWN:
-          player->move_down = false;
+          move_down = false;
           break;
       }
       break;

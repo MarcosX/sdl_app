@@ -12,6 +12,7 @@ protected:
  int current_frame, max_frames;
  int width, height;
  int velocity_x, velocity_y;
+ bool move_left, move_right, move_up, move_down;
 public:
  int getWidth(){return width;};
  int getHeight(){return height;};
