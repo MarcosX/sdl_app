@@ -30,6 +30,8 @@ void PlayerWalking::loop(){
 }
 
 void PlayerWalking::render(SDL_Surface* display){
+  SDL_Rect r = {player->pos_x, player->pos_y, width, height};
+  SDL_FillRect(display, &r, 0xFFFFFF);
   if(move_down)
     SurfaceHelper::draw(display, sprites, player->pos_x, player->pos_y, current_frame*width, 0, width, height);
   else if(move_up)

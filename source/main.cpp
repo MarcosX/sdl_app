@@ -3,6 +3,7 @@
 
 SDL_Surface* ImageSource::playerImageSheet = NULL;
 SDL_Surface* ImageSource::enemyImageSheet = NULL;
+SDL_Surface* ImageSource::blockImage = NULL;
 
 int main(int argc, char *argv[]){
   SdlApp* app = new SdlApp();

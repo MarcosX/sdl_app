@@ -7,6 +7,7 @@ class ImageSource {
 private:
   static SDL_Surface* playerImageSheet;
   static SDL_Surface* enemyImageSheet;
+  static SDL_Surface* blockImage;
 public:
   static SDL_Surface* getPlayerImageSheet(){
     if(playerImageSheet == NULL)
@@ -18,6 +19,12 @@ public:
     if(enemyImageSheet == NULL)
       enemyImageSheet = SurfaceHelper::load("images//enemy_main_sheet.png");
     return enemyImageSheet;
+  }
+
+  static SDL_Surface* getBlockImage(){
+    if(blockImage == NULL)
+      blockImage = SurfaceHelper::load("images//block.png");
+    return blockImage;
   }
 };
 

@@ -43,10 +43,11 @@ int SdlApp::onInit(){
     return false;
   if((display = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_HWSURFACE | SDL_DOUBLEBUF)) == NULL)
     return false;
-  if((background = SurfaceHelper::load("images//bg.jpg")) == NULL)
+  if((background = SurfaceHelper::load("images//floor.png")) == NULL)
     return false;
   player = new Player();
   enemy = new Enemy();
+  block = new Block(200, 200);
   return true;
 }
 
@@ -57,18 +58,27 @@ void SdlApp::onLoop(){
   if((old_time + frame_rate > SDL_GetTicks()))
     return;
   old_time = SDL_GetTicks();
+  int old_player_x = player->pos_x;
+  int old_player_y = player->pos_y;
   player->loop();
   enemy->loop();
   if(player->hits(enemy)){
     delete(player);
     player = new Player();
   }
+  if(player->hits(block)){
+    player->pos_x = old_player_x;
+    player->pos_y = old_player_y;
+  }
 }
 
 void SdlApp::onRender(){
-  SurfaceHelper::draw(display, background, 0, 0);
+  for(int i = 0; i < SCREEN_WIDTH; i+=32)
+    for(int j = 0; j < SCREEN_HEIGHT; j+=32)
+      SurfaceHelper::draw(display, background, i, j);
   enemy->render(display);
   player->render(display);
+  block->render(display);
   SDL_Flip(display);
 }
 

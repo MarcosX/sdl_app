@@ -5,6 +5,7 @@
 #include "entities/game_entity.h"
 #include "entities/player.h"
 #include "entities/enemy.h"
+#include "entities/block.h"
 #include "helpers/constants.h"
 #include "helpers/surface_helper.h"
 
@@ -17,6 +18,7 @@ private:
   SDL_Surface* background;
   Player* player;
   Enemy* enemy;
+  Block* block;
 
   int onInit();
   void onEvent(SDL_Event* event);

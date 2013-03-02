@@ -12,8 +12,8 @@ protected:
   EntityState* current_state;
 public:
   int pos_x, pos_y;
-  int getWidth() {return current_state->getWidth();};
-  int getHeight() {return current_state->getHeight();};
+  virtual int getWidth() {return current_state->getWidth();};
+  virtual int getHeight() {return current_state->getHeight();};
   virtual void loop(){};
   virtual void render(SDL_Surface* display){};
   virtual void cleanUp(){};
